@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AddUserPage</title>
+</head>
+<body>
+<form th:method = "POST" th:action = "@{/admin/add}" th:object= "${user}">
+    <label for = "username"> Username:</label>
+    <input type = "text" th:field = "*{username}" id = "username"/>
+    <br>
+    <br>
+    <label for = "email"> Email:</label>
+    <input type = "text" th:field = "*{email}" id = "email"/>
+    <br>
+    <br>
+    <label for = "password"> Password:</label>
+    <input type = "password" th:field = "*{password}" id = "password"/>
+    <br>
+    <br>
+    <label>Role:
+        <select size="2" multiple name="roles" >
+            <option value="1">USER</option>
+            <option selected="selected" value="2">ADMIN</option>
+        </select>
+    </label>
+    <br>
+    <br>
+    <input type = "submit" value = "OK"/>
+</form>
+</body>>
+</html>
