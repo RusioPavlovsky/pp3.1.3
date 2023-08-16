@@ -35,11 +35,6 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    public List<Role> getRoleNames() {
-        return Arrays.asList(new Role("ROLE_USER"), new Role("ROLE_ADMIN"));
-    }
-
-    @Override
     @Transactional
     public void deleteById(Long id) {
         roleRepository.deleteById(id);

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AddUserPage</title>
+    <meta charset="UTF-8" xmlns="http://www.w3.org/1999/html">
+    <title>UpdateUser</title>
 </head>
 <body>
 <a href="/logout"><button type="button">Выйти</button></a>
 <br>
-<form th:method = "POST" th:action = "@{/admin/add}" th:object= "${user}">
+<form th:method = "POST" th:action = "@{/admin/update}" th:object= "${user}">
+    <br>
+    <label for="id">ID: </label>
+    <input type="text" th:field="*{id}" id="id" readonly>
+    <br>
+    <br>
     <label for = "username"> Username:</label>
-    <input required type = "text" th:field = "*{username}" id = "username"/>
+    <input type = "text" th:field = "*{username}" id = "username"/>
     <br>
     <br>
     <label for = "email"> Email:</label>
@@ -17,7 +22,7 @@
     <br>
     <br>
     <label for = "password"> Password:</label>
-    <input required type = "password" th:field = "*{password}" id = "password"/>
+    <input type = "password" th:field = "*{password}" id = "password"/>
     <br>
     <br>
     <label>Role:
@@ -30,5 +35,6 @@
     <br>
     <input type = "submit" value = "OK"/>
 </form>
-</body>>
+
+</body>
 </html>
