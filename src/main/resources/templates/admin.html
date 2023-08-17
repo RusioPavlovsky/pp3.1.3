@@ -34,7 +34,7 @@
             </form>
         </td>
         <td>
-            <form th:action="@{/admin/delete-user/{id}(id=${user.getId()})}" method="post">
+            <form th:action="@{/admin/delete-user/{id}(id=${user.getId()})}" th:method="delete">
                 <button type="submit">Удалить</button>
             </form>
         </td>

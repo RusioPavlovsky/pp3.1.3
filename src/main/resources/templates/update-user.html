@@ -7,7 +7,7 @@
 <body>
 <a href="/logout"><button type="button">Выйти</button></a>
 <br>
-<form th:method = "POST" th:action = "@{/admin/update}" th:object= "${user}">
+<form th:method = "patch" th:action = "@{/admin/update}" th:object= "${user}">
     <br>
     <label for="id">ID: </label>
     <input type="text" th:field="*{id}" id="id" readonly>

@@ -28,18 +28,22 @@ public class Initialization implements ApplicationListener<ContextRefreshedEvent
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         Role userRole = new Role("ROLE_USER");
+        if (roleService.getByName("ROLE_USER") == null) {
+            roleService.save(userRole);
+        }
         Role adminRole = new Role("ROLE_ADMIN");
-        roleService.save(userRole);
-        roleService.save(adminRole);
+        if (roleService.getByName("ROLE_ADMIN") == null) {
+            roleService.save(adminRole);
+        }
         if (userService.getByUsername("user") == null) {
             User user = new User("user", "test");
-            user.setPassword(passwordEncoder.encode("user"));
+            user.setPassword("user");
             user.setRoles(Arrays.asList(userRole));
             userService.save(user);
         }
         if (userService.getByUsername("admin") == null) {
             User admin = new User("admin", "test");
-            admin.setPassword(passwordEncoder.encode("admin"));
+            admin.setPassword("admin");
             admin.setRoles(Arrays.asList(adminRole));
             userService.save(admin);
         }
